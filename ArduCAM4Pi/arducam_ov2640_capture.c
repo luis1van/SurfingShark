@@ -28,14 +28,14 @@ void setup()
      // Check if the ArduCAM SPI bus is OK
     arducam_write_reg(ARDUCHIP_TEST1, 0x55, CAM1_CS);
     temp = arducam_read_reg(ARDUCHIP_TEST1, CAM1_CS);
-    //printf("temp=%x\n",temp);
-    if(temp != 0x55) {
-        printf("SPI interface error!\n");
-        exit(EXIT_FAILURE);
-    }
-     else{
-    	   printf("SPI interface OK!\n");
-    	}
+    printf("temp=%x\n",temp);
+   // if(temp != 0x55) {
+     //   printf("SPI interface error!\n");
+       // exit(EXIT_FAILURE);
+   // }
+     //else{
+    //	   printf("SPI interface OK!\n");
+    //	}
     
     // Change MCU mode
     arducam_write_reg(ARDUCHIP_MODE, 0x00, CAM1_CS);
