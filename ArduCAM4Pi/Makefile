@@ -5,7 +5,7 @@ object1=arducam_ov2640_capture.o
 
 sonar: $(objects) sonar.o 
 	gcc -o sonar $(objects) $(object1)
-ov2640_capture : $(objects) arducam_ov2640_capture.o 
+ov2640_capture : $(objects) arducam_ov2640_capture.o -lwiringPi -Wall
 	gcc -o ov2640_capture $(objects) arducam_ov2640_capture.o -lwiringPi -Wall	
 ov2640_4cams_capture : $(objects) arducam_ov2640_4cams_capture.o 
 	gcc -o ov2640_4cams_capture $(objects) arducam_ov2640_4cams_capture.o -lwiringPi -Wall	
