@@ -1,0 +1,1 @@
+int capture(int argc, char *argv[]);

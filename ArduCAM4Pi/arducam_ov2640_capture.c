@@ -13,6 +13,7 @@
 #include <wiringPiSPI.h>
 #include <unistd.h>
 #include "arducam.h"
+#include "arducam_ov2640_capture.h"
 #define OV2640_CHIPID_HIGH  0x0A
 #define OV2640_CHIPID_LOW   0x0B
 
