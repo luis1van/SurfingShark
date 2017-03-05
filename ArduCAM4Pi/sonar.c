@@ -5,6 +5,7 @@
 #include <termios.h>		//Used for sonar cam
 #include <stdlib.h>
 #include <string.h>
+#include <arducam_ov2640_capture.c>
 
 //-------------------------
 //----- SETUP USART 0 -----
@@ -12,7 +13,8 @@
 //At bootup, pins 8 and 10 are already set to UART0_TXD, UART0_RXD (ie the alt0 function) respectively
 int main(int argc, char const *argv[])
 {
-
+    
+    capture(argc,argv);
 // kquwtvfguiqwrfuytvwfuvyqtwfruibtqwrf
     int uart0_filestream = -1;
 
