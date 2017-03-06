@@ -3,7 +3,7 @@ all : ov2640_4cams_capture ov5642_capture ov5642_4cams_capture sonar
 objects = arducam.o arducam_arch_raspberrypi.o 
 object1=arducam_ov2640_capture.o
 
-sonar: $(objects) sonar.o 
+sonar: $(objects) $(object1) sonar.o 
 	gcc -o sonar $(objects) $(object1) -lwiringPi -Wall
 ov2640_capture : $(objects) arducam_ov2640_capture.o -lwiringPi -Wall
 	gcc -o ov2640_capture $(objects) arducam_ov2640_capture.o -lwiringPi -Wall	
