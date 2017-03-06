@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <time.h>
-#include <wiringPiSPI.h>
 #include <unistd.h>
 #include "arducam.h"
 #include "arducam_ov2640_capture.h"
