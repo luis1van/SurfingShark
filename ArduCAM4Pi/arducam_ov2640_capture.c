@@ -52,7 +52,7 @@ void setup()
     }
 }
 
-int capture(int argc, char *argv[])
+int capture(int argc, char *argv[] ,int setup_flag)
 {
     if (argc == 1)
     {
@@ -73,7 +73,7 @@ int capture(int argc, char *argv[])
 
   	if (strcmp(argv[1], "-c") == 0 && argc == 4) 
   	{
-      setup();
+      if(!setup_flag)setup();
       arducam_set_format(fmtJPEG);
       arducam_init();
       // Change to JPEG capture mode and initialize the OV2640 module   
