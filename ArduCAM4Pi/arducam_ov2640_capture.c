@@ -144,4 +144,5 @@ int capture(int argc, char *argv[])
       printf("Error: unknown or missing argument.\n");
       exit(EXIT_FAILURE);
   }
+    return 1;
 }

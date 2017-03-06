@@ -16,7 +16,7 @@
 int main(int argc, char *argv[])
 {
     
-    capture(argc,argv);
+    
 // kquwtvfguiqwrfuytvwfuvyqtwfruibtqwrf
     int uart0_filestream = -1;
 
@@ -97,6 +97,8 @@ int main(int argc, char *argv[])
                 
                 buffer_step = ++buffer_step%200;
                 
+                if(buffer_step == 199) capture(argc,argv);
+                    
                 if(rx_buffer[0] == 'R')
                 {rx_buffer[0] = ' ';
                  rx_buffer[rx_length-1] = 'c';
