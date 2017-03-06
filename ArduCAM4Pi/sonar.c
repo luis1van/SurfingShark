@@ -16,7 +16,7 @@
 int main(int argc, char *argv[])
 {
     
-    capture(argc,argv);
+    arducam_ov2640_capture(argc,argv);
 // kquwtvfguiqwrfuytvwfuvyqtwfruibtqwrf
     int uart0_filestream = -1;
 

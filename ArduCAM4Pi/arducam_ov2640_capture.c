@@ -52,7 +52,7 @@ void setup()
     }
 }
 
-int capture(int argc, char *argv[])
+int arducam_ov2640_capture(int argc, char *argv[])
 {
     if (argc == 1)
     {
