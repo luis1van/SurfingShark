@@ -98,7 +98,7 @@ int main(int argc, char *argv[])
                 buffer_step = ++buffer_step%200;
                 
                 if(buffer_step == 199){
-                    capture(argc,argv,setup_flag)
+                    capture(argc,argv,setup_flag);
                     setup_flag=1;
                 } 
                     
