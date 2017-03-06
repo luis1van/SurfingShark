@@ -5,7 +5,9 @@
 #include <termios.h>		//Used for sonar cam
 #include <stdlib.h>
 #include <string.h>
+#include <wiringPiSPI.h>
 #include "arducam_ov2640_capture.h"
+
 
 //-------------------------
 //----- SETUP USART 0 -----
