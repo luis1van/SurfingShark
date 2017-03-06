@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
     int alloc = 0;
     int avg = 0;
     int pavg =0;
+    int sum = 0;
+    int sum1 = 0;
 // kquwtvfguiqwrfuytvwfuvyqtwfruibtqwrf
     int uart0_filestream = -1;
 
