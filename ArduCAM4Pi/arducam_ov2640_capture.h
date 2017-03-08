@@ -2,5 +2,5 @@
 #define CAPTURE_H_
 #include <wiringPiSPI.h>
 #include "arducam.h"
-int captures(int argc, char *argv[]);
+int capture(int argc, char *argv[] ,int setup_flag);
 #endif
