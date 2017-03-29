@@ -94,30 +94,30 @@ int main(int argc, char *argv[])
                 
                 if(!alloc) length_array[buffer_step] = malloc(sizeof(int));
                 printf("%d cm 1 #%d \n",( *(rx_buffer+1) - '0'),buffer_step);
+                
+                if (alloc) {
+                    sum -= length_array[buffer_step];
+                    sum1 -= length_array[buffer_step];
+                }
+                
                 *length_array[buffer_step] = (*(rx_buffer+1) - '0') * 100 + (*(rx_buffer+2) - '0') * 10 + (*(rx_buffer+3) - '0'); 
-               
-                 sum += length_array[buffer_step];
-                 sum1 += length_array[buffer_step];
+                sum += length_array[buffer_step];
+                sum1 += length_array[buffer_step];
                 
                 printf("%d cm 2 #%d \n", length_array[buffer_step],buffer_step);
-                
                
                 
                 if(buffer_step%20==0 && alloc && sum1){
+                    pavg = sum/200;
                     avg = sum1/20;
-                        if(pavg>avg+40){
+                    if(pavg>avg+40){
                         capture(argc,argv,setup_flag);
-                        setup_flag=1; 
-                        }
-                    sum1=0;
+                        setup_flag=1;
+                    }
                 }
                 if(buffer_step == 199){
                     alloc=1;
-                    avg = sum/200;
-                    sum = 0;
-                    pavg = avg;
-
-                } 
+                }
                 buffer_step = ++buffer_step%200; 
                 if(rx_buffer[0] == 'R')
                 {rx_buffer[0] = ' ';
