@@ -96,8 +96,8 @@ int main(int argc, char *argv[])
                 printf("%d cm 1 #%d \n",( *(rx_buffer+1) - '0'),buffer_step);
                 
                 if (alloc) {
-                    sum += length_array[buffer_step];
-                    sum1 -= length_array[buffer_step];
+                    sum -= (int) length_array[buffer_step];
+                    sum1 -= (int) length_array[buffer_step];
                 }
                 
                 *length_array[buffer_step] = (*(rx_buffer+1) - '0') * 100 + (*(rx_buffer+2) - '0') * 10 + (*(rx_buffer+3) - '0');
