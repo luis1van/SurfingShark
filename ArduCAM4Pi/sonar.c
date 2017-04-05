@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
                     
                     //length_array[buffer_step] = 
                     sum += length_array[buffer_step];
-                    if (buffer_step == 19 || (sub_flag && buffer_step == 0)) {
+                    if ((buffer_step%20) == 19 || (sub_flag && buffer_step == 0)) {
                         avg = sum/20;
                         printf("Current Average: %d\n", avg);
                         if (avg < 200) {
