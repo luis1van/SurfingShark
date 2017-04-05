@@ -127,6 +127,7 @@ int main(int argc, char *argv[])
                     sum += length_array[buffer_step];
                     if (buffer_step == 99) {
                         avg = sum/100;
+                        printf("Current Average: %d\n", avg);
                         if (avg < 200) {
                             capture(argc,argv,setup_flag);
                             setup_flag = 1;
