@@ -15,7 +15,7 @@
 //At bootup, pins 8 and 10 are already set to UART0_TXD, UART0_RXD (ie the alt0 function) respectively
 int main(int argc, char *argv[])
 {
-    
+    bool sub_flag = false; int index = 0;
     int setup_flag = 0;
     int alloc = 0;
     int avg = 0;
@@ -89,12 +89,11 @@ int main(int argc, char *argv[])
                 //No data waiting
             }
             else
-            {	 
-
+            {
                 
                 if(!alloc) length_array[buffer_step] = malloc(sizeof(int));
                 printf("%d cm 1 #%d \n",( *(rx_buffer+1) - '0'),buffer_step);
-                
+                /*
                 if (alloc) {
                     sum -= (int) length_array[buffer_step];
                     sum1 -= (int) length_array[buffer_step];
@@ -109,22 +108,40 @@ int main(int argc, char *argv[])
                
                 
                 if(buffer_step%20==0 && alloc && sum1){
-                    pavg = sum/200;
                     avg = sum1/20;
-                    if(pavg>avg+40){
+                    if(pavg > avg + 40) {
                         capture(argc,argv,setup_flag);
                         setup_flag=1;
                     }
                 }
                 if(buffer_step == 199){
-                    alloc=1;
-                }
+                    alloc = 1;
+                    pavg = sum/200;
+                }*/
+                    if (sub_flag) {
+                        if (buffer_step < 99) index = 199 - (99 - buffer_step);
+                        else                  index = buffer_step - 99;
+                        sum -= (int) length_array[index];
+                    }
+                    *length_array[buffer_step] = (*(rx_buffer+1) - '0') * 100 + (*(rx_buffer+2) - '0') * 10 + (*(rx_buffer+3) - '0');
+                    sum += length_array[buffer_step];
+                    if (buffer_step == 99) {
+                        avg = sum/100;
+                        if (avg < 200) {
+                            capture(argc,argv,setup_flag);
+                            setup_flag = 1;
+                        }
+                        sub_flag = true;
+                    }
+                    // End of new code.
                 buffer_step = ++buffer_step%200; 
                 if(rx_buffer[0] == 'R')
-                {rx_buffer[0] = ' ';
-                 rx_buffer[rx_length-1] = 'c';
-                 rx_buffer[rx_length] = 'm';
-                 rx_buffer[rx_length + 1] = '\0';}
+                {
+                    rx_buffer[0] = ' ';
+                    rx_buffer[rx_length-1] = 'c';
+                    rx_buffer[rx_length] = 'm';
+                    rx_buffer[rx_length + 1] = '\0';
+                }
 
                 printf("Distance: %s\n", rx_buffer);
                 //printf("%i bytes read : %s\n", rx_length, rx_buffer);
