@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
                     *length_array[buffer_step] = (*(rx_buffer[1]) - 48) * 100 + (*(rx_buffer[2]) - 48) * 10 + (*(rx_buffer[3]) - 48);
                     
                     //length_array[buffer_step] = 
-                    sum += length_array[buffer_step];
+                    sum += (int) length_array[buffer_step];
                     printf("RX Buffer 1: %d %d %d \n", (rx_buffer[1] - 48), (rx_buffer[2] - 48), (rx_buffer[3] - 48));
                     printf("Sum: %d\n",sum);
                     if (buffer_step == 99 || (sub_flag && buffer_step == 0)) {
