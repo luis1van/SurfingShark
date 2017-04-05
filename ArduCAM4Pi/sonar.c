@@ -125,6 +125,7 @@ int main(int argc, char *argv[])
                     }
                     *length_array[buffer_step] = (*(rx_buffer+1) - '0') * 100 + (*(rx_buffer+2) - '0') * 10 + (*(rx_buffer+3) - '0');
                     sum += (int) length_array[buffer_step];
+                    printf("Sum: %d \n",sum );
                     if (buffer_step == 99 || (sub_flag && buffer_step == 0)) {
                         avg = sum/100;
                         printf("Current Average: %d\n", avg);
