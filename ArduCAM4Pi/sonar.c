@@ -127,8 +127,8 @@ int main(int argc, char *argv[])
                     
                     //length_array[buffer_step] = 
                     sum += length_array[buffer_step];
-                    // printf("RX Buffer en CM: %s %s %s \n",rx_buffer[1],rx_buffer[2],rx_buffer[3]);
-                    // printf("RX Buffer ASCII: %d %d %d \n",rx_buffer[1],rx_buffer[2],rx_buffer[3]);
+                    printf("RX Buffer en CM: %s %s %s \n",rx_buffer[1],rx_buffer[2],rx_buffer[3]);
+                    printf("RX Buffer ASCII: %d %d %d \n",rx_buffer[1],rx_buffer[2],rx_buffer[3]);
                     if (buffer_step == 99 || (sub_flag && buffer_step == 0)) {
                         avg = sum/100;
                         printf("Current Average: %d\n", avg);
