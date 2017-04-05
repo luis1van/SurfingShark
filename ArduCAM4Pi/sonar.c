@@ -120,16 +120,16 @@ int main(int argc, char *argv[])
                     pavg = sum/200;
                 }*/
                     if (sub_flag) {
-                        if (buffer_step < 99) index = 199 - (99 - buffer_step);
-                        else                  index = buffer_step - 99;
+                        if (buffer_step < 19) index = 199 - (19 - buffer_step);
+                        else                  index = buffer_step - 19;
                         sum -= length_array[index];
                     }
                     length_array[buffer_step] = (rx_buffer[1] - 48) * 100 + (rx_buffer[2] - 48) * 10 + (rx_buffer[3] - 48);
                     
                     //length_array[buffer_step] = 
                     sum += length_array[buffer_step];
-                    if (buffer_step == 99 || (sub_flag && buffer_step == 0)) {
-                        avg = sum/100;
+                    if (buffer_step == 19 || (sub_flag && buffer_step == 0)) {
+                        avg = sum/20;
                         printf("Current Average: %d\n", avg);
                         if (avg < 200) {
                             capture(argc,argv,setup_flag);
