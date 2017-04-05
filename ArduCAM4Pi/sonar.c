@@ -123,7 +123,9 @@ int main(int argc, char *argv[])
                         else                  index = buffer_step - 99;
                         sum -= (int) length_array[index];
                     }
-                    *length_array[buffer_step] = (*(rx_buffer+1) - '0') * 100 + (*(rx_buffer+2) - '0') * 10 + (*(rx_buffer+3) - '0');
+                    *length_array[buffer_step] = (*(rx_buffer+1)) * 100 + (*(rx_buffer+2)) * 10 + (*(rx_buffer+3));
+                    
+                    //length_array[buffer_step] = 
                     sum += length_array[buffer_step];
                     printf("Sum: %d \n",sum );
                     if (buffer_step == 99 || (sub_flag && buffer_step == 0)) {
