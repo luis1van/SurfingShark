@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
                         sum -= (int) length_array[index];
                     }
                     //*length_array[buffer_step] = (*(rx_buffer+1)) * 100 + (*(rx_buffer+2)) * 10 + (*(rx_buffer+3));
-                    *length_array[buffer_step] = (rx_buffer[1] - '0') * 100 + (rx_buffer[2] - '0') * 10 + (rx_buffer[3] - '0');
+                    length_array[buffer_step] = (rx_buffer[1] - '0') * 100 + (rx_buffer[2] - '0') * 10 + (rx_buffer[3] - '0');
                     // length_array[buffer_step] = ((rx_buffer[1]) - 48) * 100 + ((rx_buffer[2]) - 48) * 10 + ((rx_buffer[3]) - 48);
                     
                     //length_array[buffer_step] = 
