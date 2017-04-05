@@ -70,7 +70,8 @@ int main(int argc, char *argv[])
     {
         int cm_buffer_length = 200, buffer_step=0;
         
-        unsigned char* length_array[cm_buffer_length];
+        // unsigned char* length_array[cm_buffer_length];
+        int length_array[cm_buffer_length];
         //printf("Enter reading page code uart0_filestream: %d",uart0_filestream);
         // Read up to 255 characters from the port if they are there
         while(1){
@@ -124,7 +125,7 @@ int main(int argc, char *argv[])
                         sum -= (int) length_array[index];
                     }
                     //*length_array[buffer_step] = (*(rx_buffer+1)) * 100 + (*(rx_buffer+2)) * 10 + (*(rx_buffer+3));
-                    *length_array[buffer_step] = (*(rx_buffer[1]) - '0') * 100 + (*(rx_buffer[2]) - '0') * 10 + (*(rx_buffer[3]) - '0');
+                    *length_array[buffer_step] = (rx_buffer[1] - '0') * 100 + (rx_buffer[2] - '0') * 10 + (rx_buffer[3] - '0');
                     // length_array[buffer_step] = ((rx_buffer[1]) - 48) * 100 + ((rx_buffer[2]) - 48) * 10 + ((rx_buffer[3]) - 48);
                     
                     //length_array[buffer_step] = 
