@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     int pavg =0;
     int sum = 0;
     int sum1 = 0;
-// kquwtvfguiqwrfuytvwfuvyqtwfruibtqwrf
+
     int uart0_filestream = -1;
 
     //OPEN THE UART
@@ -122,16 +122,12 @@ int main(int argc, char *argv[])
                     if (sub_flag) {
                         if (buffer_step < 99) index = 199 - (99 - buffer_step);
                         else                  index = buffer_step - 99;
-                        sum -= (int) length_array[index];
+                        sum -= length_array[index];
                     }
-                    //*length_array[buffer_step] = (*(rx_buffer+1)) * 100 + (*(rx_buffer+2)) * 10 + (*(rx_buffer+3));
-                    length_array[buffer_step] = (rx_buffer[1] - '0') * 100 + (rx_buffer[2] - '0') * 10 + (rx_buffer[3] - '0');
-                    // length_array[buffer_step] = ((rx_buffer[1]) - 48) * 100 + ((rx_buffer[2]) - 48) * 10 + ((rx_buffer[3]) - 48);
+                    length_array[buffer_step] = (rx_buffer[1] - 48) * 100 + (rx_buffer[2] - 48) * 10 + (rx_buffer[3] - 48);
                     
                     //length_array[buffer_step] = 
-                    sum += (int) length_array[buffer_step];
-                    printf("RX Buffer 1: %d %d %d \n", (rx_buffer[1] - 48), (rx_buffer[2] - 48), (rx_buffer[3] - 48));
-                    printf("Sum: %d\n",sum);
+                    sum += length_array[buffer_step];
                     if (buffer_step == 99 || (sub_flag && buffer_step == 0)) {
                         avg = sum/100;
                         printf("Current Average: %d\n", avg);
